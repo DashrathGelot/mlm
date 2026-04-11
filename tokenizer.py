@@ -61,3 +61,37 @@ def run_tokenizer_v2():
 ## Above is word based tokenization 
 ## Problem: It is very difficult to handle unknown words and it is very difficult to handle rare words.
 ## Solution: Byte Pair Encoding (BPE)
+## BPE Algorithm: Learn frequent subwords automatically from data
+## core idea: repetedly merge most frequent byte pair of symbols into a new symbol
+"""
+1. Start with corpus text
+2. Split everything into characters/bytes
+3. Add special end-of-word symbol (_)
+
+4. Repeat until vocab size = target:
+    a. Count frequency of all adjacent symbol pairs
+    b. Find most frequent pair (A, B)
+    c. Merge it → AB (new token)
+    d. Replace all occurrences of (A, B) with AB
+    e. Add AB to vocabulary
+"""
+
+# Let's Use tiktoken to utilize BPE
+import tiktoken
+
+def bpe_tokenizer(text):
+    tokenizer = tiktoken.get_encoding("gpt2")
+    token_ids = tokenizer.encode(text)
+    return token_ids
+
+def bpe_detokenizer(token_ids):
+    tokenizer = tiktoken.get_encoding("gpt2")
+    text = tokenizer.decode(token_ids)
+    return text
+
+def run_bpe_tokenizer():
+    text = "Hello, Mrs. Gisburn drew back the window-curtains unknown"
+    token_ids = bpe_tokenizer(text)
+    print(token_ids)
+    decoded_text = bpe_detokenizer(token_ids)
+    print(decoded_text)
