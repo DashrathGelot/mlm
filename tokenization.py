@@ -26,7 +26,9 @@ def build_vocab():
     ## Important: It's not always obvious to remove space think about python code space matters
     ## to simplicity we are removing spaces
     result = [token for token in tokens if token.strip()]
-    all_words = sorted(set(result))
+    all_words = sorted(list(set(result)))
+    ## Add special tokens
+    all_words.extend(["<|endoftext|>", "<|unk|>"])
     vocab = {token:i for i, token in enumerate(all_words)}
     return vocab
 
