@@ -23,3 +23,9 @@
 - Zero shot: with zero short it predicts the output based on the natural language instruction without any example
 - One Shot: with one short model predicts the output based on the natural language instruction and one example.
 - Few shot: with few shot model predicts the output based on the natural language instruction and few examples.
+
+### Context Size:
+- How many tokens model can process or give input at once.
+
+### Tensors:
+- Tensor is multidimensional array with gpu support and automatic differentiation, used as the fundamentals building blocks of deeplearning models.
