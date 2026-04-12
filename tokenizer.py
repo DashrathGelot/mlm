@@ -89,6 +89,9 @@ def bpe_detokenizer(token_ids):
     text = tokenizer.decode(token_ids)
     return text
 
+def get_tokenizer():
+    return tiktoken.get_encoding("gpt2")
+
 def run_bpe_tokenizer():
     text = "Hello, Mrs. Gisburn drew back the window-curtains unknown"
     token_ids = bpe_tokenizer(text)
