@@ -29,3 +29,9 @@
 
 ### Tensors:
 - Tensor is multidimensional array with gpu support and automatic differentiation, used as the fundamentals building blocks of deeplearning models.
+
+### Embedding Layer:
+- The embedding layer is lookup operation that retrives rows from the embedding layer weight matrix using a token ID.
+
+### Positional Embedding (Encoding of Position):
+- Vectors added to token embeddings to encode position information.
