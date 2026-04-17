@@ -60,6 +60,12 @@ def create_dataloader_v1(text, tokenizer, batch_size=4, context_size=256, stride
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last, num_workers=num_workers)
     return dataloader
 
+def create_dataloader(text, batch_size=4, context_size=256, stride=128, shuffle=True, drop_last=True, num_workers=0):
+    tokenizer = get_tokenizer()
+    dataset = GPTDatasetV1(text, tokenizer, context_size, stride)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last, num_workers=num_workers)
+    return dataloader
+
 
 def demo():
     ## batch size 1 and stride 1
