@@ -1,5 +1,11 @@
 # mlm
 
+## TOPICS
+1. tokenization.py
+2. tokenizer.py
+3. dataloader.py
+4. token_embeddings.py
+
 ### Pretraining vs Finetuning
 - Pretraining is the phase where LLM learns the structure and knowledge of language by predicting text on massive data.
 - Finetuning is the process of adapting pretrained LLM to a specific task or domain by training it on trageted data.
